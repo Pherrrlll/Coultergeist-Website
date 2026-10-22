@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Russo+One&display=swap">
-  <link rel="stylesheet" href="/css/style.css?v=3">
-  <script src="/js/main.js?v=3" defer></script>
+  <link rel="stylesheet" href="/css/style.css?v=4">
+  <script src="/js/main.js?v=4" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -36,28 +36,80 @@
     <div class="container narrow">
       <div class="page-header">
         <h1>Support</h1>
-        <p>Having trouble with one of our games? We're happy to help.</p>
+        <p>Having trouble with one of our games? Send us a message and we'll get back to you by email.</p>
       </div>
 
-      <div class="support-box">
-        <div>
-          <h2>Email us</h2>
-          <p>We'll get back to you as soon as we can.</p>
+      <!-- Messages are delivered to the business inbox by Web3Forms (web3forms.com) using the access key below. -->
+      <form id="support-form" class="support-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="d92e902e-93f3-4e98-adaf-4841d5ac642a">
+        <input type="hidden" name="from_name" value="Coultergeist Support Form">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="game">Game</label>
+            <select id="game" name="game" required>
+              <option value="" selected disabled>Choose a game</option>
+              <option>Relicbearer TD</option>
+              <option>Not about a specific game</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="platform">Platform</label>
+            <select id="platform" name="platform" required>
+              <option value="" selected disabled>Choose a platform</option>
+              <option>Steam – Windows</option>
+              <option>Steam – macOS</option>
+              <option>Steam – Linux</option>
+              <option>Steam Deck</option>
+              <option>Android</option>
+              <option>iOS / iPadOS</option>
+              <option>Not applicable</option>
+            </select>
+          </div>
         </div>
-        <a class="email-link" href="mailto:business@coultergeist.co.uk?subject=Support%20request">business@coultergeist.co.uk</a>
-      </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="" selected disabled>What's it about?</option>
+            <option>Bug or glitch</option>
+            <option>Crash or won't start</option>
+            <option>Lost or broken save progress</option>
+            <option>Gameplay question</option>
+            <option>Purchase or refund</option>
+            <option>Feedback or suggestion</option>
+            <option>Privacy or data request</option>
+            <option>Business or press enquiry</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name <span class="optional">(optional)</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" maxlength="80">
+          </div>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="120" required>
+            <p class="hint">So we can reply. We won't use it for anything else.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Short description</label>
+          <textarea id="message" name="message" rows="5" minlength="10" maxlength="1000" required placeholder="What happened, and what did you expect to happen? Include your device model or game version if you know it."></textarea>
+          <p class="hint"><span id="message-count">0</span> / 1000 characters</p>
+        </div>
+
+        <p class="hint">By sending this form you agree to us using your details to reply, as described in our <a href="/privacy/">privacy policies</a>.</p>
+
+        <button class="button" type="submit">Send message</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
 
       <div class="prose">
-        <h2>What to include</h2>
-        <p>To help us sort things out quickly, please tell us:</p>
-        <ul class="checklist">
-          <li>Which game (for example, Relicbearer TD)</li>
-          <li>Your platform: Steam (Windows, macOS, Linux or Steam Deck), Android or iOS</li>
-          <li>Your device model, if you're on a phone or tablet</li>
-          <li>The game version, if you know it</li>
-          <li>What happened and what you expected to happen, plus a screenshot if you can</li>
-        </ul>
-
         <h2>Common questions</h2>
         <div class="faq">
           <details>
@@ -87,7 +139,6 @@
       <nav class="footer-links" aria-label="Footer">
         <a href="/support.html">Support</a>
         <a href="/privacy/">Privacy</a>
-        <a href="mailto:business@coultergeist.co.uk">business@coultergeist.co.uk</a>
       </nav>
     </div>
   </footer>
