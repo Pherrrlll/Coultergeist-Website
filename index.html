@@ -22,8 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Russo+One&display=swap">
-  <link rel="stylesheet" href="/css/style.css?v=5">
-  <script src="/js/main.js?v=4" defer></script>
+  <link rel="stylesheet" href="/css/style.css?v=6">
+  <script src="/js/main.js?v=5" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -44,7 +44,16 @@
         <img class="hero-logo" src="/images/coultergeist-logo.png" alt="" width="1200" height="400">
         <h1>Coultergeist</h1>
         <p class="lead">Independent games, made in the UK.</p>
-        <a class="button" href="#games">See our games</a>
+        <!-- Launch countdown: 8am UK time, 1 December 2026 (GMT, so 08:00Z) -->
+        <div class="countdown" data-launch="2026-12-01T08:00:00Z" hidden>
+          <p class="countdown-label">Relicbearer TD launches in</p>
+          <div class="countdown-units">
+            <div class="countdown-unit"><span data-unit="days">0</span><small>Days</small></div>
+            <div class="countdown-unit"><span data-unit="hours">00</span><small>Hours</small></div>
+            <div class="countdown-unit"><span data-unit="minutes">00</span><small>Mins</small></div>
+            <div class="countdown-unit"><span data-unit="seconds">00</span><small>Secs</small></div>
+          </div>
+        </div>
       </div>
     </section>
 

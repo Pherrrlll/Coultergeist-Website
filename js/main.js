@@ -86,6 +86,35 @@ if (form) {
   });
 }
 
+// Hero launch countdown: <div class="countdown" data-launch="ISO date"> ticks every second
+const countdown = document.querySelector(".countdown[data-launch]");
+
+if (countdown) {
+  const launch = new Date(countdown.dataset.launch);
+  const label = countdown.querySelector(".countdown-label");
+  const units = countdown.querySelector(".countdown-units");
+  const field = (name) => countdown.querySelector(`[data-unit="${name}"]`);
+  const pad = (n) => String(n).padStart(2, "0");
+
+  const tick = () => {
+    const left = Math.max(0, Math.floor((launch - Date.now()) / 1000));
+    if (left === 0) {
+      label.textContent = "Relicbearer TD is out now!";
+      units.hidden = true;
+      clearInterval(timer);
+      return;
+    }
+    field("days").textContent = Math.floor(left / 86400);
+    field("hours").textContent = pad(Math.floor((left % 86400) / 3600));
+    field("minutes").textContent = pad(Math.floor((left % 3600) / 60));
+    field("seconds").textContent = pad(left % 60);
+  };
+
+  const timer = setInterval(tick, 1000);
+  tick();
+  countdown.hidden = false;
+}
+
 // Release countdowns: <span data-release="2026-12-01"></span>
 document.querySelectorAll("[data-release]").forEach((el) => {
   const release = new Date(el.dataset.release + "T00:00:00");
